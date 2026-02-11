@@ -135,12 +135,17 @@ const AboutMe = () => {
           </ul>
 
           <a
-            href="/23CDR018 RESUME.pdf"
-            download
-            className="mt-8 self-center px-6 py-3 text-sm sm:text-base text-white font-medium bg-gradient-to-r from-green-400 to-teal-500 rounded-lg shadow-md hover:scale-105 hover:shadow-xl transition-transform duration-300"
-          >
-            Download Resume
-          </a>
+  href="/avaneesh_resume.pdf"
+  download
+  target="_blank"
+  rel="noopener noreferrer"
+  className="mt-8 self-center px-6 py-3 text-sm sm:text-base text-white font-medium 
+  bg-gradient-to-r from-green-400 to-teal-500 rounded-lg shadow-md 
+  hover:scale-105 hover:shadow-xl transition-transform duration-300"
+>
+  Download Resume
+</a>
+
         </motion.div>
       </div>
     </section>
