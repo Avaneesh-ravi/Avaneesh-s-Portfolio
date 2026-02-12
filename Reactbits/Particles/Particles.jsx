@@ -2,7 +2,6 @@ import { useEffect, useRef } from "react";
 import { Renderer, Camera, Geometry, Program, Mesh } from "ogl";
 
 const defaultColors = ["#ffffff", "#ffffff", "#ffffff"];
-
 const hexToRgb = (hex) => {
   hex = hex.replace(/^#/, "");
   if (hex.length === 3) {
