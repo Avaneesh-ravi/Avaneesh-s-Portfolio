@@ -13,7 +13,6 @@ const hexToRgb = (hex) => {
   const b = (int & 255) / 255;
   return [r, g, b];
 };
-
 const vertex = /* glsl */ `
   attribute vec3 position;
   attribute vec4 random;
