@@ -72,7 +72,7 @@ const projects = [
     techStack: ['React Native', 'Node.js', 'Socket.io', 'Google Maps API'],
     link: 'https://github.com/Avaneesh-ravi',
     image:
-      'https://scontent.fmaa2-2.fna.fbcdn.net/v/t39.30808-6/455325883_1208973317994372_4475519409545417936_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=127cfc&_nc_ohc=fO_9eN9m4VQQ7kNvgFv0X5u&_nc_oc=AdhO1L9G-I_vG9G9G9G9G9G9G9G9G9G9G9G9G9G9G9G9G9G9G9G9G9G9G9G9G9G9&_nc_zt=23&_nc_ht=scontent.fmaa2-2.fna&oh=00_AYC-9G9G9G9G9G9G9G9G9G9G9G9G9G9G9G9G9G9G9G9G9&oe=66D0E8B9',
+      'https://c8.alamy.com/comp/2HK94RM/communication-with-customer-and-call-center-vector-illustration-cartoon-online-help-and-information-assistance-of-female-operator-in-headset-to-girl-with-phone-website-support-service-concept-2HK94RM.jpg',
   },
 ];
 
