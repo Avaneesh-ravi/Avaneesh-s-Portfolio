@@ -65,15 +65,15 @@ const projects = [
 
 
 
-  {
-    title: 'SIH Hybrid Renewable Energy Project',
-    description:
-      'Hybrid renewable energy system integrating solar, wind, and battery storage with AI prediction.',
-    techStack: ['Research', 'AI', 'Innovation'],
-    link: 'https://github.com/Avaneesh-ravi',
-    image:
-      'https://media.easy-peasy.ai/27feb2bb-aeb4-4a83-9fb6-8f3f2a15885e/8cb13dac-c304-4368-9178-5aa3f28e37d3.png',
-  },
+{
+  title: 'LocalLink Service Marketplace',
+  description:
+    'A hyperlocal platform connecting clients with service providers like plumbers and electricians for real-time booking and appointment management.',
+  techStack: ['React Native', 'Node.js', 'Socket.io', 'Google Maps API'],
+  link: 'https://github.com/Avaneesh-ravi',
+  image:
+    'https://www.brightlocal.com/wp-content/uploads/2024/12/local-seo-services-cta-transparent.png',
+},
 ];
 
 const MyProjects = () => {
