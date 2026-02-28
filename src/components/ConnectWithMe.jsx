@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import emailjs from '@emailjs/browser';
 
@@ -6,6 +6,11 @@ const ConnectWithMe = () => {
   const form = useRef(null);
   const sectionRef = useRef(null);
   const [loading, setLoading] = useState(false);
+
+  // Initialize EmailJS with your Public Key once when the component mounts
+  useEffect(() => {
+    emailjs.init("ya8uE8UM4j66HfXzW"); 
+  }, []);
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -18,14 +23,12 @@ const ConnectWithMe = () => {
     e.preventDefault();
     setLoading(true);
 
-    // UPDATED: Service ID matches your screenshot (service_advir5a)
-    // IMPORTANT: Ensure 'template_5k8ez91' and 'ya8uE8UM4j66HfXzW' are correct in your dashboard
+    // Using the Service ID from your screenshot and your Template ID
     emailjs
       .sendForm(
         'service_advir5a', 
         'template_5k8ez91', 
-        form.current, 
-        'ya8uE8UM4j66HfXzW'
+        form.current
       )
       .then(
         () => {
@@ -34,8 +37,8 @@ const ConnectWithMe = () => {
           setLoading(false);
         },
         (error) => {
-          console.error('FAILED...', error.text);
-          alert('❌ Something went wrong. Please check the console for details.');
+          console.error('FAILED...', error);
+          alert(`❌ Error: ${error.text || "Check console for details"}`);
           setLoading(false);
         }
       );
@@ -90,7 +93,6 @@ const ConnectWithMe = () => {
         transition={{ duration: 0.6 }}
         className="relative z-10 w-full max-w-4xl bg-white/5 border border-gray-700 backdrop-blur-md p-8 rounded-3xl shadow-lg space-y-6"
       >
-        {/* Name Fields */}
         <div className="flex flex-col md:flex-row gap-6">
           <div className="flex-1">
             <label className="block text-sm mb-1 text-gray-300">
@@ -118,7 +120,6 @@ const ConnectWithMe = () => {
           </div>
         </div>
 
-        {/* Email */}
         <div>
           <label className="block text-sm mb-1 text-gray-300">Email:</label>
           <input
@@ -130,7 +131,6 @@ const ConnectWithMe = () => {
           />
         </div>
 
-        {/* Message */}
         <div>
           <label className="block text-sm mb-1 text-gray-300">
             Your Message:
@@ -144,7 +144,6 @@ const ConnectWithMe = () => {
           ></textarea>
         </div>
 
-        {/* Submit Button */}
         <button
           type="submit"
           disabled={loading}
