@@ -6,6 +6,7 @@ const ConnectWithMe = () => {
   const form = useRef(null);
   const sectionRef = useRef(null);
   const [loading, setLoading] = useState(false);
+  
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
