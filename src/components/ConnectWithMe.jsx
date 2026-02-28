@@ -7,9 +7,9 @@ const ConnectWithMe = () => {
   const sectionRef = useRef(null);
   const [loading, setLoading] = useState(false);
 
-  // Initialize EmailJS with your Public Key once when the component mounts
+  // 1. Initialize with your Public Key as soon as the component loads
   useEffect(() => {
-    emailjs.init("ya8uE8UM4j66HfXzW"); 
+    emailjs.init("ya8uE8UM4j66HfXzW");
   }, []);
 
   const { scrollYProgress } = useScroll({
@@ -23,7 +23,8 @@ const ConnectWithMe = () => {
     e.preventDefault();
     setLoading(true);
 
-    // Using the Service ID from your screenshot and your Template ID
+    // 2. We use the Service ID and Template ID from your dashboard
+    // Double-check 'template_5k8ez91' in your EmailJS 'Email Templates' tab
     emailjs
       .sendForm(
         'service_advir5a', 
@@ -37,8 +38,9 @@ const ConnectWithMe = () => {
           setLoading(false);
         },
         (error) => {
+          // This will now show the exact error string from EmailJS
           console.error('FAILED...', error);
-          alert(`❌ Error: ${error.text || "Check console for details"}`);
+          alert(`❌ Error: ${error.text || "Service ID not recognized"}`);
           setLoading(false);
         }
       );
@@ -77,7 +79,6 @@ const ConnectWithMe = () => {
           <span className="text-white"> →</span>
         </h2>
 
-        {/* Your Contact Info */}
         <p className="mt-4 text-gray-400 text-sm">
           📧 avaneeshravi4084@gmail.com | 📞 +91-9842951881
         </p>
@@ -95,9 +96,7 @@ const ConnectWithMe = () => {
       >
         <div className="flex flex-col md:flex-row gap-6">
           <div className="flex-1">
-            <label className="block text-sm mb-1 text-gray-300">
-              First Name:
-            </label>
+            <label className="block text-sm mb-1 text-gray-300">First Name:</label>
             <input
               type="text"
               name="first_name"
@@ -107,9 +106,7 @@ const ConnectWithMe = () => {
             />
           </div>
           <div className="flex-1">
-            <label className="block text-sm mb-1 text-gray-300">
-              Last Name:
-            </label>
+            <label className="block text-sm mb-1 text-gray-300">Last Name:</label>
             <input
               type="text"
               name="last_name"
@@ -132,9 +129,7 @@ const ConnectWithMe = () => {
         </div>
 
         <div>
-          <label className="block text-sm mb-1 text-gray-300">
-            Your Message:
-          </label>
+          <label className="block text-sm mb-1 text-gray-300">Your Message:</label>
           <textarea
             name="message"
             rows="4"
