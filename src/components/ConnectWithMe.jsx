@@ -18,13 +18,18 @@ const ConnectWithMe = () => {
     e.preventDefault();
     setLoading(true);
 
-    // Updated IDs from your screenshots:
-    // Service ID: service_advir5a
-    // Template ID: template_yfrv8rs
+    // service_advir5a and template_yfrv8rs match your dashboard screenshots
     emailjs
-      .sendForm('service_advir5a', 'template_yfrv8rs', form.current, {
-        publicKey: 'ya8uE8UM4j66HfXzW', 
-      })
+      .sendForm(
+        'service_advir5a', 
+        'template_yfrv8rs', 
+        form.current, 
+        {
+          // IMPORTANT: Check your EmailJS Dashboard -> Account -> Public Key
+          // Replace 'ya8uE8UM4j66HfXzW' if it is different in your account
+          publicKey: 'ya8uE8UM4j66HfXzW', 
+        }
+      )
       .then(
         () => {
           alert('✅ Message sent successfully!');
@@ -32,7 +37,8 @@ const ConnectWithMe = () => {
           setLoading(false);
         },
         (error) => {
-          console.error('FAILED...', error.text);
+          // Check your browser console (F12) to see the specific error message
+          console.error('FAILED...', error);
           alert('❌ Something went wrong. Please try again.');
           setLoading(false);
         }
@@ -44,10 +50,8 @@ const ConnectWithMe = () => {
       ref={sectionRef}
       className="min-h-screen bg-black text-white px-6 py-20 lg:px-24 overflow-hidden flex flex-col justify-center items-center relative"
     >
-      {/* Glow Background */}
       <div className="absolute top-[100px] left-1/2 -translate-x-1/2 w-[400px] h-[200px] bg-pink-500 blur-3xl opacity-10 rounded-full pointer-events-none" />
 
-      {/* Background CONNECT Text */}
       <motion.h1
         style={{ y: yParallax }}
         className="absolute text-[100px] md:text-[140px] font-extrabold bg-gradient-to-r from-green-400 to-teal-400 bg-clip-text text-transparent opacity-10 top-20 left-0 select-none pointer-events-none whitespace-nowrap"
@@ -55,7 +59,6 @@ const ConnectWithMe = () => {
         CONNECT
       </motion.h1>
 
-      {/* Section Header */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -71,14 +74,11 @@ const ConnectWithMe = () => {
           <span className="text-green-400">CONNECT</span>
           <span className="text-white"> →</span>
         </h2>
-
-        {/* Your Contact Info */}
         <p className="mt-4 text-gray-400 text-sm">
           📧 avaneeshravi4084@gmail.com | 📞 +91-9842951881
         </p>
       </motion.div>
 
-      {/* Contact Form */}
       <motion.form
         ref={form}
         onSubmit={sendEmail}
@@ -88,12 +88,9 @@ const ConnectWithMe = () => {
         transition={{ duration: 0.6 }}
         className="relative z-10 w-full max-w-4xl bg-white/5 border border-gray-700 backdrop-blur-md p-8 rounded-3xl shadow-lg space-y-6"
       >
-        {/* Name Fields */}
         <div className="flex flex-col md:flex-row gap-6">
           <div className="flex-1">
-            <label className="block text-sm mb-1 text-gray-300">
-              First Name:
-            </label>
+            <label className="block text-sm mb-1 text-gray-300">First Name:</label>
             <input
               type="text"
               name="first_name"
@@ -103,9 +100,7 @@ const ConnectWithMe = () => {
             />
           </div>
           <div className="flex-1">
-            <label className="block text-sm mb-1 text-gray-300">
-              Last Name:
-            </label>
+            <label className="block text-sm mb-1 text-gray-300">Last Name:</label>
             <input
               type="text"
               name="last_name"
@@ -116,7 +111,6 @@ const ConnectWithMe = () => {
           </div>
         </div>
 
-        {/* Email */}
         <div>
           <label className="block text-sm mb-1 text-gray-300">Email:</label>
           <input
@@ -128,11 +122,8 @@ const ConnectWithMe = () => {
           />
         </div>
 
-        {/* Message */}
         <div>
-          <label className="block text-sm mb-1 text-gray-300">
-            Your Message:
-          </label>
+          <label className="block text-sm mb-1 text-gray-300">Your Message:</label>
           <textarea
             name="message"
             rows="4"
@@ -142,7 +133,6 @@ const ConnectWithMe = () => {
           ></textarea>
         </div>
 
-        {/* Submit Button */}
         <button
           type="submit"
           disabled={loading}
