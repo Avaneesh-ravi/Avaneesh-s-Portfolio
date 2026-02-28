@@ -18,10 +18,15 @@ const ConnectWithMe = () => {
     e.preventDefault();
     setLoading(true);
 
+    // UPDATED: Service ID matches your screenshot (service_advir5a)
+    // IMPORTANT: Ensure 'template_5k8ez91' and 'ya8uE8UM4j66HfXzW' are correct in your dashboard
     emailjs
-      .sendForm('service_en40hq9', 'template_5k8ez91', form.current, {
-        publicKey: 'ya8uE8UM4j66HfXzW',
-      })
+      .sendForm(
+        'service_advir5a', 
+        'template_5k8ez91', 
+        form.current, 
+        'ya8uE8UM4j66HfXzW'
+      )
       .then(
         () => {
           alert('✅ Message sent successfully!');
@@ -30,7 +35,7 @@ const ConnectWithMe = () => {
         },
         (error) => {
           console.error('FAILED...', error.text);
-          alert('❌ Something went wrong. Please try again.');
+          alert('❌ Something went wrong. Please check the console for details.');
           setLoading(false);
         }
       );
