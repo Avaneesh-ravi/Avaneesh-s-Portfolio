@@ -22,7 +22,7 @@ const ConnectWithMe = () => {
     // Using the credentials verified from your EmailJS Dashboard screenshots
     emailjs
       .sendForm(
-        'service_advir5a',    // Your confirmed Gmail Service ID
+        'service_advir5a',    // Your confirmed Gmail Service ID from screenshot
         'template_5k8ez91',    // Your Template ID
         form.current, 
         {
