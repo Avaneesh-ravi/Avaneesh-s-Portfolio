@@ -7,6 +7,7 @@ const ConnectWithMe = () => {
   const sectionRef = useRef(null);
   const [loading, setLoading] = useState(false);
 
+  // Scroll Parallax Effect for the background text
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ['start end', 'end start'],
@@ -19,9 +20,14 @@ const ConnectWithMe = () => {
     setLoading(true);
 
     emailjs
-      .sendForm('service_en40hq9', 'template_5k8ez91', form.current, {
-        publicKey: 'ya8uE8UM4j66HfXzW',
-      })
+      .sendForm(
+        'service_advir5a', // Correct Service ID from your updated dashboard
+        'template_5k8ez91', // Your Template ID
+        form.current, 
+        {
+          publicKey: 'ya8uE8UM4j66HfXzW', // Your Public Key
+        }
+      )
       .then(
         () => {
           alert('✅ Message sent successfully!');
@@ -41,10 +47,10 @@ const ConnectWithMe = () => {
       ref={sectionRef}
       className="min-h-screen bg-black text-white px-6 py-20 lg:px-24 overflow-hidden flex flex-col justify-center items-center relative"
     >
-      {/* Glow Background */}
+      {/* Glow Background Decor */}
       <div className="absolute top-[100px] left-1/2 -translate-x-1/2 w-[400px] h-[200px] bg-pink-500 blur-3xl opacity-10 rounded-full pointer-events-none" />
 
-      {/* Background CONNECT Text */}
+      {/* Background Animated Text */}
       <motion.h1
         style={{ y: yParallax }}
         className="absolute text-[100px] md:text-[140px] font-extrabold bg-gradient-to-r from-green-400 to-teal-400 bg-clip-text text-transparent opacity-10 top-20 left-0 select-none pointer-events-none whitespace-nowrap"
@@ -69,7 +75,7 @@ const ConnectWithMe = () => {
           <span className="text-white"> →</span>
         </h2>
 
-        {/* Your Contact Info */}
+        {/* Contact Info Display */}
         <p className="mt-4 text-gray-400 text-sm">
           📧 avaneeshravi4084@gmail.com | 📞 +91-9842951881
         </p>
@@ -85,7 +91,7 @@ const ConnectWithMe = () => {
         transition={{ duration: 0.6 }}
         className="relative z-10 w-full max-w-4xl bg-white/5 border border-gray-700 backdrop-blur-md p-8 rounded-3xl shadow-lg space-y-6"
       >
-        {/* Name Fields */}
+        {/* Name Input Group */}
         <div className="flex flex-col md:flex-row gap-6">
           <div className="flex-1">
             <label className="block text-sm mb-1 text-gray-300">
@@ -96,7 +102,7 @@ const ConnectWithMe = () => {
               name="first_name"
               placeholder="Your Name"
               required
-              className="w-full px-4 py-2 bg-transparent border border-gray-600 rounded-md text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-green-400"
+              className="w-full px-4 py-2 bg-transparent border border-gray-600 rounded-md text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-green-400 transition"
             />
           </div>
           <div className="flex-1">
@@ -108,12 +114,12 @@ const ConnectWithMe = () => {
               name="last_name"
               placeholder="Surname"
               required
-              className="w-full px-4 py-2 bg-transparent border border-gray-600 rounded-md text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-green-400"
+              className="w-full px-4 py-2 bg-transparent border border-gray-600 rounded-md text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-green-400 transition"
             />
           </div>
         </div>
 
-        {/* Email */}
+        {/* Email Input */}
         <div>
           <label className="block text-sm mb-1 text-gray-300">Email:</label>
           <input
@@ -121,11 +127,11 @@ const ConnectWithMe = () => {
             name="email"
             placeholder="yourmail@email.com"
             required
-            className="w-full px-4 py-2 bg-transparent border border-gray-600 rounded-md text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-green-400"
+            className="w-full px-4 py-2 bg-transparent border border-gray-600 rounded-md text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-green-400 transition"
           />
         </div>
 
-        {/* Message */}
+        {/* Message Input */}
         <div>
           <label className="block text-sm mb-1 text-gray-300">
             Your Message:
@@ -135,15 +141,15 @@ const ConnectWithMe = () => {
             rows="4"
             required
             placeholder="Hi! I would like to connect with you."
-            className="w-full px-4 py-2 bg-transparent border border-gray-600 rounded-md text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-green-400"
+            className="w-full px-4 py-2 bg-transparent border border-gray-600 rounded-md text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-green-400 transition"
           ></textarea>
         </div>
 
-        {/* Submit Button */}
+        {/* Action Button */}
         <button
           type="submit"
           disabled={loading}
-          className="mt-4 px-6 py-2 bg-green-700 text-white font-medium rounded-md hover:bg-green-600 transition disabled:opacity-50"
+          className="mt-4 px-8 py-3 bg-green-700 text-white font-bold rounded-full hover:bg-green-600 transition-all active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {loading ? "Sending..." : "Submit"}
         </button>
