@@ -7,7 +7,7 @@ const ConnectWithMe = () => {
   const sectionRef = useRef(null);
   const [loading, setLoading] = useState(false);
 
-  // Scroll Parallax Effect for the background text
+  // Parallax effect for the background "CONNECT" text
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ['start end', 'end start'],
@@ -19,13 +19,14 @@ const ConnectWithMe = () => {
     e.preventDefault();
     setLoading(true);
 
+    // Using the credentials verified from your EmailJS Dashboard screenshots
     emailjs
       .sendForm(
-        'service_advir5a', // Correct Service ID from your updated dashboard
-        'template_5k8ez91', // Your Template ID
+        'service_advir5a',    // Your confirmed Gmail Service ID
+        'template_5k8ez91',    // Your Template ID
         form.current, 
         {
-          publicKey: 'ya8uE8UM4j66HfXzW', // Your Public Key
+          publicKey: 'ya8uE8UM4j66HfXzW', // Your verified Public Key
         }
       )
       .then(
@@ -35,8 +36,9 @@ const ConnectWithMe = () => {
           setLoading(false);
         },
         (error) => {
-          console.error('FAILED...', error.text);
-          alert('❌ Something went wrong. Please try again.');
+          // Detailed logging to help troubleshoot if it fails
+          console.error('EMAILJS ERROR:', error.text);
+          alert('❌ Something went wrong. Please check the console for details.');
           setLoading(false);
         }
       );
@@ -47,10 +49,10 @@ const ConnectWithMe = () => {
       ref={sectionRef}
       className="min-h-screen bg-black text-white px-6 py-20 lg:px-24 overflow-hidden flex flex-col justify-center items-center relative"
     >
-      {/* Glow Background Decor */}
+      {/* Background Glow */}
       <div className="absolute top-[100px] left-1/2 -translate-x-1/2 w-[400px] h-[200px] bg-pink-500 blur-3xl opacity-10 rounded-full pointer-events-none" />
 
-      {/* Background Animated Text */}
+      {/* Parallax Background Text */}
       <motion.h1
         style={{ y: yParallax }}
         className="absolute text-[100px] md:text-[140px] font-extrabold bg-gradient-to-r from-green-400 to-teal-400 bg-clip-text text-transparent opacity-10 top-20 left-0 select-none pointer-events-none whitespace-nowrap"
@@ -58,7 +60,7 @@ const ConnectWithMe = () => {
         CONNECT
       </motion.h1>
 
-      {/* Section Header */}
+      {/* Header Content */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -67,21 +69,19 @@ const ConnectWithMe = () => {
         className="relative z-10 mb-12 text-center"
       >
         <p className="text-sm uppercase tracking-widest text-gray-400">
-          WANNA WORK TOGETHER ?
+          WANNA WORK TOGETHER?
         </p>
         <h2 className="text-4xl md:text-5xl font-bold mt-2">
           <span className="text-white">LET'S </span>
           <span className="text-green-400">CONNECT</span>
           <span className="text-white"> →</span>
         </h2>
-
-        {/* Contact Info Display */}
         <p className="mt-4 text-gray-400 text-sm">
           📧 avaneeshravi4084@gmail.com | 📞 +91-9842951881
         </p>
       </motion.div>
 
-      {/* Contact Form */}
+      {/* Contact Form Card */}
       <motion.form
         ref={form}
         onSubmit={sendEmail}
@@ -91,12 +91,9 @@ const ConnectWithMe = () => {
         transition={{ duration: 0.6 }}
         className="relative z-10 w-full max-w-4xl bg-white/5 border border-gray-700 backdrop-blur-md p-8 rounded-3xl shadow-lg space-y-6"
       >
-        {/* Name Input Group */}
         <div className="flex flex-col md:flex-row gap-6">
           <div className="flex-1">
-            <label className="block text-sm mb-1 text-gray-300">
-              First Name:
-            </label>
+            <label className="block text-sm mb-1 text-gray-300">First Name:</label>
             <input
               type="text"
               name="first_name"
@@ -106,9 +103,7 @@ const ConnectWithMe = () => {
             />
           </div>
           <div className="flex-1">
-            <label className="block text-sm mb-1 text-gray-300">
-              Last Name:
-            </label>
+            <label className="block text-sm mb-1 text-gray-300">Last Name:</label>
             <input
               type="text"
               name="last_name"
@@ -119,7 +114,6 @@ const ConnectWithMe = () => {
           </div>
         </div>
 
-        {/* Email Input */}
         <div>
           <label className="block text-sm mb-1 text-gray-300">Email:</label>
           <input
@@ -131,11 +125,8 @@ const ConnectWithMe = () => {
           />
         </div>
 
-        {/* Message Input */}
         <div>
-          <label className="block text-sm mb-1 text-gray-300">
-            Your Message:
-          </label>
+          <label className="block text-sm mb-1 text-gray-300">Your Message:</label>
           <textarea
             name="message"
             rows="4"
@@ -145,7 +136,6 @@ const ConnectWithMe = () => {
           ></textarea>
         </div>
 
-        {/* Action Button */}
         <button
           type="submit"
           disabled={loading}
