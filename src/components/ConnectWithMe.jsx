@@ -7,7 +7,7 @@ const ConnectWithMe = () => {
   const sectionRef = useRef(null);
   const [loading, setLoading] = useState(false);
 
-  // 1. Initialize with your Public Key as soon as the component loads
+  // Initialize EmailJS with your Public Key
   useEffect(() => {
     emailjs.init("ya8uE8UM4j66HfXzW");
   }, []);
@@ -23,8 +23,7 @@ const ConnectWithMe = () => {
     e.preventDefault();
     setLoading(true);
 
-    // 2. We use the Service ID and Template ID from your dashboard
-    // Double-check 'template_5k8ez91' in your EmailJS 'Email Templates' tab
+    // Using the IDs directly from your dashboard screenshot
     emailjs
       .sendForm(
         'service_advir5a', 
@@ -38,9 +37,9 @@ const ConnectWithMe = () => {
           setLoading(false);
         },
         (error) => {
-          // This will now show the exact error string from EmailJS
           console.error('FAILED...', error);
-          alert(`❌ Error: ${error.text || "Service ID not recognized"}`);
+          // Directly displaying the error from EmailJS for better debugging
+          alert(`❌ Error: ${error.text || "Service ID not found"}`);
           setLoading(false);
         }
       );
@@ -51,10 +50,8 @@ const ConnectWithMe = () => {
       ref={sectionRef}
       className="min-h-screen bg-black text-white px-6 py-20 lg:px-24 overflow-hidden flex flex-col justify-center items-center relative"
     >
-      {/* Glow Background */}
       <div className="absolute top-[100px] left-1/2 -translate-x-1/2 w-[400px] h-[200px] bg-pink-500 blur-3xl opacity-10 rounded-full pointer-events-none" />
 
-      {/* Background CONNECT Text */}
       <motion.h1
         style={{ y: yParallax }}
         className="absolute text-[100px] md:text-[140px] font-extrabold bg-gradient-to-r from-green-400 to-teal-400 bg-clip-text text-transparent opacity-10 top-20 left-0 select-none pointer-events-none whitespace-nowrap"
@@ -62,7 +59,6 @@ const ConnectWithMe = () => {
         CONNECT
       </motion.h1>
 
-      {/* Section Header */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -84,7 +80,6 @@ const ConnectWithMe = () => {
         </p>
       </motion.div>
 
-      {/* Contact Form */}
       <motion.form
         ref={form}
         onSubmit={sendEmail}
