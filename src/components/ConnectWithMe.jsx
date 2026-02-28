@@ -18,14 +18,13 @@ const ConnectWithMe = () => {
     e.preventDefault();
     setLoading(true);
 
-    // Updated with IDs from your dashboard screenshots
     emailjs
       .sendForm(
-        'service_advir5a', // Your Gmail Service ID
-        'template_yfrv8rs', // Your "Contact Us" Template ID
-        form.current,
+        'service_advir5a',    // Your Service ID from screenshot
+        'template_yfrv8rs',   // Your Template ID from screenshot
+        form.current, 
         {
-          publicKey: 'ya8uE8UM4j66HfXzW',
+          publicKey: 'ya8uE8UM4j66HfXzW', // Your Public Key
         }
       )
       .then(
@@ -67,7 +66,7 @@ const ConnectWithMe = () => {
         className="relative z-10 mb-12 text-center"
       >
         <p className="text-sm uppercase tracking-widest text-gray-400">
-          WANNA WORK TOGETHER?
+          WANNA WORK TOGETHER ?
         </p>
         <h2 className="text-4xl md:text-5xl font-bold mt-2">
           <span className="text-white">LET'S </span>
@@ -75,7 +74,6 @@ const ConnectWithMe = () => {
           <span className="text-white"> →</span>
         </h2>
 
-        {/* Your Contact Info */}
         <p className="mt-4 text-gray-400 text-sm">
           📧 avaneeshravi4084@gmail.com | 📞 +91-9842951881
         </p>
@@ -91,15 +89,14 @@ const ConnectWithMe = () => {
         transition={{ duration: 0.6 }}
         className="relative z-10 w-full max-w-4xl bg-white/5 border border-gray-700 backdrop-blur-md p-8 rounded-3xl shadow-lg space-y-6"
       >
-        {/* Name Fields */}
         <div className="flex flex-col md:flex-row gap-6">
           <div className="flex-1">
             <label className="block text-sm mb-1 text-gray-300">
-              First Name:
+              Name:
             </label>
             <input
               type="text"
-              name="first_name" // Ensure this matches {{first_name}} in EmailJS template
+              name="from_name" // Ensure this matches your EmailJS template variable
               placeholder="Your Name"
               required
               className="w-full px-4 py-2 bg-transparent border border-gray-600 rounded-md text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-green-400"
@@ -107,37 +104,24 @@ const ConnectWithMe = () => {
           </div>
           <div className="flex-1">
             <label className="block text-sm mb-1 text-gray-300">
-              Last Name:
+              Email:
             </label>
             <input
-              type="text"
-              name="last_name" // Ensure this matches {{last_name}} in EmailJS template
-              placeholder="Surname"
+              type="email"
+              name="user_email" // Ensure this matches your EmailJS template variable
+              placeholder="yourmail@email.com"
               required
               className="w-full px-4 py-2 bg-transparent border border-gray-600 rounded-md text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-green-400"
             />
           </div>
         </div>
 
-        {/* Email */}
-        <div>
-          <label className="block text-sm mb-1 text-gray-300">Email:</label>
-          <input
-            type="email"
-            name="email" // Ensure this matches {{email}} in EmailJS template
-            placeholder="yourmail@email.com"
-            required
-            className="w-full px-4 py-2 bg-transparent border border-gray-600 rounded-md text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-green-400"
-          />
-        </div>
-
-        {/* Message */}
         <div>
           <label className="block text-sm mb-1 text-gray-300">
             Your Message:
           </label>
           <textarea
-            name="message" // Ensure this matches {{message}} in EmailJS template
+            name="message" // Ensure this matches your EmailJS template variable
             rows="4"
             required
             placeholder="Hi! I would like to connect with you."
@@ -145,7 +129,6 @@ const ConnectWithMe = () => {
           ></textarea>
         </div>
 
-        {/* Submit Button */}
         <button
           type="submit"
           disabled={loading}
