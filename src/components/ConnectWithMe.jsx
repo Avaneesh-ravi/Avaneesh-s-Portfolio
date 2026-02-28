@@ -18,15 +18,13 @@ const ConnectWithMe = () => {
     e.preventDefault();
     setLoading(true);
 
+    // Updated IDs from your screenshots:
+    // Service ID: service_advir5a
+    // Template ID: template_yfrv8rs
     emailjs
-      .sendForm(
-        'service_advir5a',    // Your Service ID from screenshot
-        'template_yfrv8rs',   // Your Template ID from screenshot
-        form.current, 
-        {
-          publicKey: 'ya8uE8UM4j66HfXzW', // Your Public Key
-        }
-      )
+      .sendForm('service_advir5a', 'template_yfrv8rs', form.current, {
+        publicKey: 'ya8uE8UM4j66HfXzW', 
+      })
       .then(
         () => {
           alert('✅ Message sent successfully!');
@@ -74,6 +72,7 @@ const ConnectWithMe = () => {
           <span className="text-white"> →</span>
         </h2>
 
+        {/* Your Contact Info */}
         <p className="mt-4 text-gray-400 text-sm">
           📧 avaneeshravi4084@gmail.com | 📞 +91-9842951881
         </p>
@@ -89,14 +88,15 @@ const ConnectWithMe = () => {
         transition={{ duration: 0.6 }}
         className="relative z-10 w-full max-w-4xl bg-white/5 border border-gray-700 backdrop-blur-md p-8 rounded-3xl shadow-lg space-y-6"
       >
+        {/* Name Fields */}
         <div className="flex flex-col md:flex-row gap-6">
           <div className="flex-1">
             <label className="block text-sm mb-1 text-gray-300">
-              Name:
+              First Name:
             </label>
             <input
               type="text"
-              name="from_name" // Ensure this matches your EmailJS template variable
+              name="first_name"
               placeholder="Your Name"
               required
               className="w-full px-4 py-2 bg-transparent border border-gray-600 rounded-md text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-green-400"
@@ -104,24 +104,37 @@ const ConnectWithMe = () => {
           </div>
           <div className="flex-1">
             <label className="block text-sm mb-1 text-gray-300">
-              Email:
+              Last Name:
             </label>
             <input
-              type="email"
-              name="user_email" // Ensure this matches your EmailJS template variable
-              placeholder="yourmail@email.com"
+              type="text"
+              name="last_name"
+              placeholder="Surname"
               required
               className="w-full px-4 py-2 bg-transparent border border-gray-600 rounded-md text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-green-400"
             />
           </div>
         </div>
 
+        {/* Email */}
+        <div>
+          <label className="block text-sm mb-1 text-gray-300">Email:</label>
+          <input
+            type="email"
+            name="email"
+            placeholder="yourmail@email.com"
+            required
+            className="w-full px-4 py-2 bg-transparent border border-gray-600 rounded-md text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-green-400"
+          />
+        </div>
+
+        {/* Message */}
         <div>
           <label className="block text-sm mb-1 text-gray-300">
             Your Message:
           </label>
           <textarea
-            name="message" // Ensure this matches your EmailJS template variable
+            name="message"
             rows="4"
             required
             placeholder="Hi! I would like to connect with you."
@@ -129,6 +142,7 @@ const ConnectWithMe = () => {
           ></textarea>
         </div>
 
+        {/* Submit Button */}
         <button
           type="submit"
           disabled={loading}
