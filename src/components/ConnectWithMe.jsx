@@ -7,7 +7,7 @@ const ConnectWithMe = () => {
   const sectionRef = useRef(null);
   const [loading, setLoading] = useState(false);
 
-  // Initialize EmailJS with your Public Key
+  // Initialize EmailJS with your Public Key as soon as the component mounts
   useEffect(() => {
     emailjs.init("l8jHuMga9aa1ZK7sv");
   }, []);
@@ -23,13 +23,15 @@ const ConnectWithMe = () => {
     e.preventDefault();
     setLoading(true);
 
-    // Using your specific Service and Template IDs
+    // Using the modern Object-based configuration to avoid 404/Not Found errors
     emailjs
       .sendForm(
         'service_sj5vi28', 
         'template_yfrv8rs', 
         form.current, 
-        'l8jHuMga9aa1ZK7sv'
+        {
+          publicKey: 'l8jHuMga9aa1ZK7sv',
+        }
       )
       .then(
         () => {
@@ -39,7 +41,7 @@ const ConnectWithMe = () => {
         },
         (error) => {
           console.error('FAILED...', error);
-          alert('❌ Something went wrong. Check the console for details.');
+          alert(`❌ Failed to send: ${error.text || "Check console for details"}`);
           setLoading(false);
         }
       );
@@ -50,10 +52,10 @@ const ConnectWithMe = () => {
       ref={sectionRef}
       className="min-h-screen bg-black text-white px-6 py-20 lg:px-24 overflow-hidden flex flex-col justify-center items-center relative"
     >
-      {/* Glow Background */}
+      {/* Background Glow */}
       <div className="absolute top-[100px] left-1/2 -translate-x-1/2 w-[400px] h-[200px] bg-pink-500 blur-3xl opacity-10 rounded-full pointer-events-none" />
 
-      {/* Background CONNECT Text */}
+      {/* Floating Background Text */}
       <motion.h1
         style={{ y: yParallax }}
         className="absolute text-[100px] md:text-[140px] font-extrabold bg-gradient-to-r from-green-400 to-teal-400 bg-clip-text text-transparent opacity-10 top-20 left-0 select-none pointer-events-none whitespace-nowrap"
@@ -61,7 +63,7 @@ const ConnectWithMe = () => {
         CONNECT
       </motion.h1>
 
-      {/* Section Header */}
+      {/* Header Section */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -98,50 +100,50 @@ const ConnectWithMe = () => {
             <label className="block text-sm mb-1 text-gray-300">First Name:</label>
             <input
               type="text"
-              name="first_name" // Ensure this matches {{first_name}} in EmailJS template
+              name="first_name" 
               placeholder="Your Name"
               required
-              className="w-full px-4 py-2 bg-transparent border border-gray-600 rounded-md text-white focus:outline-none focus:ring-1 focus:ring-green-400"
+              className="w-full px-4 py-2 bg-transparent border border-gray-600 rounded-md text-white focus:outline-none focus:ring-1 focus:ring-green-400 transition-all"
             />
           </div>
           <div className="flex-1">
             <label className="block text-sm mb-1 text-gray-300">Last Name:</label>
             <input
               type="text"
-              name="last_name" // Ensure this matches {{last_name}}
+              name="last_name" 
               placeholder="Surname"
               required
-              className="w-full px-4 py-2 bg-transparent border border-gray-600 rounded-md text-white focus:outline-none focus:ring-1 focus:ring-green-400"
+              className="w-full px-4 py-2 bg-transparent border border-gray-600 rounded-md text-white focus:outline-none focus:ring-1 focus:ring-green-400 transition-all"
             />
           </div>
         </div>
 
         <div>
-          <label className="block text-sm mb-1 text-gray-300">Email:</label>
+          <label className="block text-sm mb-1 text-gray-300">Email Address:</label>
           <input
             type="email"
-            name="email" // Ensure this matches {{email}}
+            name="email" 
             placeholder="yourmail@email.com"
             required
-            className="w-full px-4 py-2 bg-transparent border border-gray-600 rounded-md text-white focus:outline-none focus:ring-1 focus:ring-green-400"
+            className="w-full px-4 py-2 bg-transparent border border-gray-600 rounded-md text-white focus:outline-none focus:ring-1 focus:ring-green-400 transition-all"
           />
         </div>
 
         <div>
           <label className="block text-sm mb-1 text-gray-300">Your Message:</label>
           <textarea
-            name="message" // Ensure this matches {{message}}
+            name="message" 
             rows="4"
             required
             placeholder="Hi! I would like to connect with you."
-            className="w-full px-4 py-2 bg-transparent border border-gray-600 rounded-md text-white focus:outline-none focus:ring-1 focus:ring-green-400"
+            className="w-full px-4 py-2 bg-transparent border border-gray-600 rounded-md text-white focus:outline-none focus:ring-1 focus:ring-green-400 transition-all"
           ></textarea>
         </div>
 
         <button
           type="submit"
           disabled={loading}
-          className="mt-4 px-10 py-3 bg-green-500 hover:bg-green-400 text-black font-bold rounded-full transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="mt-4 px-10 py-3 bg-green-500 hover:bg-green-400 text-black font-bold rounded-full transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed transform active:scale-95"
         >
           {loading ? "SENDING..." : "SEND MESSAGE"}
         </button>
