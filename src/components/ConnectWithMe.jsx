@@ -18,10 +18,10 @@ const ConnectWithMe = () => {
     e.preventDefault();
     setLoading(true);
 
-    // Using your verified credentials
-    const SERVICE_ID = 'service_sj5vi28'; 
-    const TEMPLATE_ID = 'template_yfrv8rs'; 
-    const PUBLIC_KEY = 'l8jHuMga9aa1ZK7sv'; 
+    // Verified credentials from your successful dashboard tests
+    const SERVICE_ID = 'service_sj5vi28'; //
+    const TEMPLATE_ID = 'template_yfrv8rs'; //
+    const PUBLIC_KEY = 'l8jHuMga9aa1ZK7sv'; //
 
     emailjs
       .sendForm(SERVICE_ID, TEMPLATE_ID, form.current, {
