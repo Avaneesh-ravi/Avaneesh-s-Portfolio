@@ -129,7 +129,7 @@ const AboutMe = () => {
             <li><span className="text-green-400">•</span> <strong>First Name</strong>: Avaneesh</li>
             <li><span className="text-green-400">•</span> <strong>Last Name</strong>: R</li>
             <li><span className="text-green-400">•</span> <strong>College</strong>: Kongu Engineering College</li>
-            <li><span className="text-green-400">•</span> <strong>CGPA</strong>: 7.3 / 10</li>
+            <li><span className="text-green-400">•</span> <strong>CGPA</strong>: 7.0 / 10</li>
             <li><span className="text-green-400">•</span> <strong>Languages</strong>: English, Tamil</li>
             <li><span className="text-green-400">•</span> <strong>Location</strong>: Erode, Tamil Nadu</li>
           </ul>
