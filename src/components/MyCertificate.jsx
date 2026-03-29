@@ -4,10 +4,10 @@ import { FaExternalLinkAlt } from 'react-icons/fa';
 
 const certificates = [
   {
-    title: 'Digital Application Fundamentals (STEM)',
-    issuer: 'NASSCOM IT-ITeS SSC / FutureSkills Prime',
+    title: 'GenAI Buildathon - Grand Finale',
+    issuer: 'NXT Wave',
     description:
-      'Certificate of Participation aligned with competency standards developed by IT-ITeS Sector Skills Council Nasscom.',
+      'Secured 8th position in India’s Biggest GenAI Buildathon. Represented Kongu Engineering College as part of team "GEN-Z-CODERS" in the national grand finale.',
     image: '/certificate.png',
     link: '/certificate.png',
   },
