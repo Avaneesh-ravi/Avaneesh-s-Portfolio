@@ -79,8 +79,7 @@ const projects = [
       'A comprehensive property rental management platform enabling landlords to manage listings, track tenants, handle payments, and oversee maintenance requests seamlessly.',
     techStack: ['React', 'Node.js', 'MongoDB', 'Tailwind CSS'],
     link: 'https://github.com/Avaneesh-ravi',
-    // Cleaned link from your Vecteezy/iStock source
-    image: 'https://media.istockphoto.com/id/1390205563/vector/real-estate-property-management-concept.jpg',
+    image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&auto=format&fit=crop',
   },
 
   {
@@ -89,20 +88,17 @@ const projects = [
       'A full-stack WhatsApp Web clone focused on real-time chat functionality, group communication, and dynamic status updates. Built with React.js frontend, Node.js + Express backend, MongoDB database, and Socket.IO for seamless real-time WebSocket capabilities.',
     techStack: ['React.js', 'Node.js', 'Express', 'MongoDB', 'Socket.IO', 'Google Gemini AI'],
     link: 'https://whatsapp-mern-task.vercel.app/login',
-    // Cleaned link from your WhatsApp UI source
-    image: 'https://media.istockphoto.com/id/1473547519/vector/whatsapp-interface-ui-smartphone-screen-mobile-app-messaging-chat-concept-social-media.jpg',
+    image: 'https://images.unsplash.com/photo-1614741118887-7a4ee193a5fa?w=600&auto=format&fit=crop',
     isLive: true,
   },
 ];
 
 const MyProjects = () => {
   const sectionRef = useRef(null);
-
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ['start end', 'end start'],
   });
-
   const yParallax = useTransform(scrollYProgress, [0, 1], [-60, 60]);
 
   return (
