@@ -79,8 +79,8 @@ const projects = [
       'A comprehensive property rental management platform enabling landlords to manage listings, track tenants, handle payments, and oversee maintenance requests seamlessly.',
     techStack: ['React', 'Node.js', 'MongoDB', 'Tailwind CSS'],
     link: 'https://github.com/Avaneesh-ravi',
-    // Newly generated property dashboard illustration link
-    image: 'https://i.ibb.co/6R0Yv8V5/rental-management-dashboard.png',
+    // New persistent cartoon dashboard link
+    image: 'https://i.postimg.cc/9M4mXg7N/rental-dashboard.png',
   },
 
   {
@@ -89,8 +89,8 @@ const projects = [
       'A full-stack WhatsApp Web clone focused on real-time chat functionality, group communication, and dynamic status updates. Built with React.js frontend, Node.js + Express backend, MongoDB database, and Socket.IO for seamless real-time WebSocket capabilities.',
     techStack: ['React.js', 'Node.js', 'Express', 'MongoDB', 'Socket.IO', 'Google Gemini AI'],
     link: 'https://whatsapp-mern-task.vercel.app/login',
-    // Newly generated chat mockup illustration link
-    image: 'https://i.ibb.co/KxbvCg9v/whatsapp-clone-interface.png',
+    // New persistent cartoon chat interface link
+    image: 'https://i.postimg.cc/mD4m9vNf/whatsapp-ui.png',
     isLive: true,
   },
 ];
