@@ -80,7 +80,7 @@ const projects = [
     techStack: ['React', 'Node.js', 'MongoDB', 'Tailwind CSS'],
     link: 'https://github.com/Avaneesh-ravi',
     image:
-      'https://cdn.pixabay.com/photo/2016/11/18/17/46/house-1836070_1280.jpg',
+      'https://media.istockphoto.com/id/1390205563/vector/real-estate-property-management-concept.jpg?s=612x612&w=0&k=20&c=1yHKABqLGnuEjd9XCVkqTbCFDZCaRQhE1v0xgK3WtI4=',
   },
 
   {
@@ -90,7 +90,7 @@ const projects = [
     techStack: ['React.js', 'Node.js', 'Express', 'MongoDB', 'Socket.IO', 'Google Gemini AI'],
     link: 'https://whatsapp-mern-task.vercel.app/login',
     image:
-      'https://cdn.pixabay.com/photo/2018/05/08/08/44/artificial-intelligence-3382507_1280.jpg',
+      'https://media.istockphoto.com/id/1473547519/vector/whatsapp-interface-ui-smartphone-screen-mobile-app-messaging-chat-concept-social-media.jpg?s=612x612&w=0&k=20&c=Rz-sF9KZVO6SyYp9xFW_oQT5V5OiCJJq_3YJbAV_J8k=',
     isLive: true,
   },
 ];
