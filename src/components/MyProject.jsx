@@ -79,8 +79,7 @@ const projects = [
       'A comprehensive property rental management platform enabling landlords to manage listings, track tenants, handle payments, and oversee maintenance requests seamlessly.',
     techStack: ['React', 'Node.js', 'MongoDB', 'Tailwind CSS'],
     link: 'https://github.com/Avaneesh-ravi',
-    image:
-      'https://media.istockphoto.com/id/1390205563/vector/real-estate-property-management-concept.jpg?s=612x612&w=0&k=20&c=1yHKABqLGnuEjd9XCVkqTbCFDZCaRQhE1v0xgK3WtI4=',
+    image: 'https://media.istockphoto.com/id/1390205563/vector/real-estate-property-management-concept.jpg?s=612x612&w=0&k=20&c=1yHKABqLGnuEjd9XCVkqTbCFDZCaRQhE1v0xgK3WtI4=',
   },
 
   {
@@ -89,8 +88,7 @@ const projects = [
       'Full-stack WhatsApp Web clone with real-time messaging, group chats, status stories, and Meta AI integration. Built with React.js frontend, Node.js + Express backend, MongoDB, and Socket.IO for seamless WebSocket communication.',
     techStack: ['React.js', 'Node.js', 'Express', 'MongoDB', 'Socket.IO', 'Google Gemini AI'],
     link: 'https://whatsapp-mern-task.vercel.app/login',
-    image:
-      'https://media.istockphoto.com/id/1473547519/vector/whatsapp-interface-ui-smartphone-screen-mobile-app-messaging-chat-concept-social-media.jpg?s=612x612&w=0&k=20&c=Rz-sF9KZVO6SyYp9xFW_oQT5V5OiCJJq_3YJbAV_J8k=',
+    image: 'https://media.istockphoto.com/id/1473547519/vector/whatsapp-interface-ui-smartphone-screen-mobile-app-messaging-chat-concept-social-media.jpg?s=612x612&w=0&k=20&c=Rz-sF9KZVO6SyYp9xFW_oQT5V5OiCJJq_3YJbAV_J8k=',
     isLive: true,
   },
 ];
