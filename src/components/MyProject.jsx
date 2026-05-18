@@ -54,18 +54,16 @@ const projects = [
   },
 
   {
-  title: 'Train Tracking UI/UX',
-  description:
-    'Modern UI design for a real-time train tracking application with improved navigation.',
-  techStack: ['Figma', 'Framer'],
-  link: 'https://github.com/Avaneesh-ravi',
-  image:
-    'https://media.istockphoto.com/id/1481033088/vector/station-platform-tourist-train-railway-concept-vector-graphic-design-illustration.jpg?s=612x612&w=0&k=20&c=2EXM_0RsiTHa7qqrFzLMS1pf6eIvIxRSIa-EvOQJo0A=',
-},
+    title: 'Train Tracking UI/UX',
+    description:
+      'Modern UI design for a real-time train tracking application with improved navigation.',
+    techStack: ['Figma', 'Framer'],
+    link: 'https://github.com/Avaneesh-ravi',
+    image:
+      'https://media.istockphoto.com/id/1481033088/vector/station-platform-tourist-train-railway-concept-vector-graphic-design-illustration.jpg?s=612x612&w=0&k=20&c=2EXM_0RsiTHa7qqrFzLMS1pf6eIvIxRSIa-EvOQJo0A=',
+  },
 
-
-
-{
+  {
     title: 'LocalLink',
     description:
       'A hyperlocal platform connecting clients with service providers like plumbers and electricians for real-time booking and appointment management.',
@@ -73,6 +71,27 @@ const projects = [
     link: 'https://github.com/Avaneesh-ravi',
     image:
       'https://c8.alamy.com/comp/2HK94RM/communication-with-customer-and-call-center-vector-illustration-cartoon-online-help-and-information-assistance-of-female-operator-in-headset-to-girl-with-phone-website-support-service-concept-2HK94RM.jpg',
+  },
+
+  {
+    title: 'Rental Management System',
+    description:
+      'A comprehensive property rental management platform enabling landlords to manage listings, track tenants, handle payments, and oversee maintenance requests seamlessly.',
+    techStack: ['React', 'Node.js', 'MongoDB', 'Tailwind CSS'],
+    link: 'https://github.com/Avaneesh-ravi',
+    image:
+      'https://static.vecteezy.com/system/resources/previews/007/968/316/non_2x/rental-property-management-concept-illustration-flat-design-eps10-modern-graphic-element-for-landing-page-empty-state-ui-infographic-icon-vector.jpg',
+  },
+
+  {
+    title: 'WhatsApp Clone',
+    description:
+      'Full-stack WhatsApp Web clone with real-time messaging, group chats, status stories, and Meta AI integration. Built with React.js frontend, Node.js + Express backend, MongoDB, and Socket.IO for seamless WebSocket communication.',
+    techStack: ['React.js', 'Node.js', 'Express', 'MongoDB', 'Socket.IO', 'Google Gemini AI'],
+    link: 'https://whatsapp-mern-task.vercel.app/login',
+    image:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/1200px-WhatsApp.svg.png',
+    isLive: true,
   },
 ];
 
@@ -129,7 +148,7 @@ const MyProjects = () => {
 
       {/* Project Cards */}
       <div className="relative z-10 flex flex-col gap-14">
-        {projects.map(({ title, description, techStack, link, image }, index) => (
+        {projects.map(({ title, description, techStack, link, image, isLive }, index) => (
           <motion.div
             key={title}
             className="group relative bg-white/5 border border-gray-700 backdrop-blur-md p-6 rounded-3xl shadow-lg transition-all duration-300 cursor-pointer hover:shadow-pink-500/40"
@@ -143,9 +162,17 @@ const MyProjects = () => {
             <div className="flex flex-col md:flex-row gap-6 items-center">
               {/* TEXT */}
               <div className="flex-1">
-                <h3 className="text-2xl md:text-3xl font-semibold text-white group-hover:text-pink-400 transition-colors">
-                  {title}
-                </h3>
+                <div className="flex items-center gap-3 flex-wrap">
+                  <h3 className="text-2xl md:text-3xl font-semibold text-white group-hover:text-pink-400 transition-colors">
+                    {title}
+                  </h3>
+                  {isLive && (
+                    <span className="flex items-center gap-1.5 bg-green-500/10 border border-green-500 text-green-400 text-xs px-3 py-1 rounded-full font-medium">
+                      <span className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse" />
+                      Live
+                    </span>
+                  )}
+                </div>
 
                 <p className="text-sm mt-2 text-gray-300">{description}</p>
 
@@ -162,7 +189,7 @@ const MyProjects = () => {
 
                 <div className="mt-6 flex items-center text-sm text-pink-400 font-medium hover:underline">
                   <FaGithub className="mr-2" />
-                  View on GitHub
+                  {isLive ? 'View Live App' : 'View on GitHub'}
                 </div>
               </div>
 
